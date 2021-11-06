@@ -1,9 +1,18 @@
 <template>
-  <div></div>
+  <div class="app">
+    <div class="tittle">Your <span>ToDo</span> List</div>
+    <TodoForm />
+  </div>
 </template>
 
 <script>
-export default {};
+import TodoForm from "./components/TodoForm";
+
+export default {
+  components: {
+    TodoForm,
+  },
+};
 </script>
 
 <style></style>

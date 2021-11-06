@@ -1,6 +1,6 @@
 <template>
-  <form class="todo-form">
-    <TodoInput />
+  <form class="todo-form" @submit.prevent>
+    <TodoInput @create="createTodo" />
     <v-select
       class="oktopost"
       :options="options"
@@ -21,6 +21,11 @@ export default {
   components: {
     TodoInput,
   },
+  methods: {
+    createTodo(todo) {
+      this.$emit("create", todo);
+    },
+  },
 };
 </script>
 
@@ -29,6 +34,7 @@ export default {
   display: flex;
   width: 700px;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .oktopost.v-select {

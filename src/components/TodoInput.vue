@@ -1,14 +1,31 @@
 <template>
   <div class="container">
-    <input type="text" class="todo-input" autofocus />
-    <button class="todo-button" type="submit">
+    <input v-model="todo.todoText" type="text" class="todo-input" autofocus />
+    <button class="todo-button" type="submit" @click="createTodo">
       <i class="fas fa-plus-circle"></i>
     </button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      todo: {
+        todoText: "",
+      },
+    };
+  },
+  methods: {
+    createTodo() {
+      this.todo.id = Date.now();
+      this.$emit("create", this.todo);
+      this.todo = {
+        todoText: "",
+      };
+    },
+  },
+};
 </script>
 
 <style scoped>

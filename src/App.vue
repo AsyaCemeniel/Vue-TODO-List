@@ -1,8 +1,12 @@
 <template>
   <div class="app">
     <div class="tittle">Your <span>ToDo</span> List</div>
-    <TodoForm @create="createTodo" />
-    <TodoList :todos="todos" />
+    <TodoForm @create="createTodo" @filtertodo="filterTodo" />
+    <TodoList
+      :todos="filteredTodos"
+      @remove="deleteTodo"
+      @checkTodo="checkTodo"
+    />
   </div>
 </template>
 
@@ -18,11 +22,41 @@ export default {
   data() {
     return {
       todos: [],
+      filteredTodos: [],
+      selected: "All",
     };
   },
   methods: {
     createTodo(todo) {
       this.todos.push(todo);
+      this.filterTodo(this.selected);
+    },
+    deleteTodo(todo) {
+      this.todos = this.todos.filter((t) => t.id !== todo.id);
+      this.filterTodo(this.selected);
+    },
+    filterTodo(selected) {
+      this.selected = selected;
+      if (selected === "Completed") {
+        this.filteredTodos = this.todos.filter((todo) => todo.isChecked);
+      } else if (selected === "Uncompleted") {
+        this.filteredTodos = this.todos.filter((todo) => !todo.isChecked);
+      } else {
+        this.filteredTodos = this.todos;
+      }
+    },
+    checkTodo(updatedTodo) {
+      this.todos = this.todos.map((todoItem) => {
+        if (updatedTodo.id === todoItem.id) {
+          return {
+            ...todoItem,
+            isChecked: updatedTodo.isChecked,
+          };
+        }
+        return todoItem;
+      });
+
+      this.filterTodo(this.selected);
     },
   },
 };

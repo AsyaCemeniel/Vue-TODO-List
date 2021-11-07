@@ -2,9 +2,11 @@
   <form class="todo-form" @submit.prevent>
     <TodoInput @create="createTodo" />
     <v-select
+      v-model="selected"
       class="oktopost"
       :options="options"
       placeholder="Filter"
+      @option:selected="filterTodo"
     ></v-select>
   </form>
 </template>
@@ -16,6 +18,7 @@ export default {
   data() {
     return {
       options: ["All", "Completed", "Uncompleted"],
+      selected: "All",
     };
   },
   components: {
@@ -24,6 +27,9 @@ export default {
   methods: {
     createTodo(todo) {
       this.$emit("create", todo);
+    },
+    filterTodo() {
+      this.$emit("filtertodo", this.selected);
     },
   },
 };

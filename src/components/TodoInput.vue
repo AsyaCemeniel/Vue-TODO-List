@@ -13,6 +13,8 @@ export default {
     return {
       todo: {
         todoText: "",
+        id: "",
+        isChecked: false,
       },
     };
   },

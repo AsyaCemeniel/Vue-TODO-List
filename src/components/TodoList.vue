@@ -3,8 +3,10 @@
     <ul>
       <TodoItem
         v-for="todo in todos"
-        :todoText="todo.todoText"
+        :todo="todo"
         :key="todo.id"
+        @remove="$emit('remove', todo)"
+        @checkTodo="checkTodo"
       />
     </ul>
   </div>
@@ -18,6 +20,11 @@ export default {
     todos: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    checkTodo(updatedTodo) {
+      this.$emit("checkTodo", updatedTodo);
     },
   },
 };

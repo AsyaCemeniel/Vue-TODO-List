@@ -1,10 +1,12 @@
 <template>
   <li class="todo">
-    <span class="todo-body">{{ todoText }}</span>
-    <button class="check-btn">
+    <span class="todo-body" :class="{ done: isChecked }">{{
+      todo.todoText
+    }}</span>
+    <button class="check-btn" @click="toggleDone">
       <i class="fas fa-check"></i>
     </button>
-    <button class="delete-btn">
+    <button class="delete-btn" @click="$emit('remove', todo)">
       <i class="far fa-trash-alt"></i>
     </button>
   </li>
@@ -12,9 +14,22 @@
 <script>
 export default {
   props: {
-    todoText: {
-      type: String,
+    todo: {
+      type: Object,
       required: true,
+    },
+  },
+  data() {
+    return {
+      isChecked: this.$props.todo.isChecked,
+    };
+  },
+  methods: {
+    toggleDone() {
+      const newValue = !this.isChecked;
+      const updatedTodo = { ...this.todo, isChecked: newValue };
+      this.$emit("checkTodo", updatedTodo);
+      this.isChecked = newValue;
     },
   },
 };
@@ -36,6 +51,11 @@ export default {
   word-break: break-all;
 }
 
+.done {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
 button {
   display: flex;
   align-items: center;
@@ -47,13 +67,23 @@ button {
   cursor: pointer;
   font-size: 25px;
   color: #eefffa;
+  transition: 0.3s;
 }
 
 .check-btn {
   background: #356cb6;
   margin-right: 10px;
 }
+.check-btn:hover {
+  background: #eefffa;
+  color: #356cb6;
+}
+
 .delete-btn {
   background: rgb(241, 148, 95);
+}
+.delete-btn:hover {
+  background: #eefffa;
+  color: rgb(241, 148, 95);
 }
 </style>

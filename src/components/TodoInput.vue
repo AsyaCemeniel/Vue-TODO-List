@@ -34,6 +34,7 @@ export default {
 .container {
   display: flex;
   width: 70%;
+  transition: 0.3s;
 }
 .todo-input {
   background: #eefffa;
@@ -51,6 +52,7 @@ export default {
   transition: all 0.2s ease;
   border-radius: 0 4px 4px 0;
   margin-right: 5px;
+  transition: 0.3s;
 }
 
 .todo-input,
@@ -64,5 +66,15 @@ export default {
 .todo-button:hover {
   background: #356cb6;
   color: #eefffa;
+}
+
+@media screen and (max-width: 820px) {
+  .container {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .todo-button {
+    margin-right: 0;
+  }
 }
 </style>

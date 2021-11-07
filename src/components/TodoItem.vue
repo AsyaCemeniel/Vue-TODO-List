@@ -60,7 +60,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
+  min-width: 45px;
   height: 45px;
   border-radius: 50%;
   border: none;
@@ -85,5 +85,13 @@ button {
 .delete-btn:hover {
   background: #eefffa;
   color: rgb(241, 148, 95);
+}
+
+@media screen and (max-width: 500px) {
+  button {
+    min-width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
 }
 </style>

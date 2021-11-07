@@ -72,11 +72,23 @@ export default {
 .tittle {
   font-size: 50px;
   margin: 100px 0 30px 0;
+  transition: 0.3s;
 }
 
 .tittle span {
   font-size: 60px;
   color: #356cb6;
   font-weight: bold;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 500px) {
+  .tittle {
+    font-size: 35px;
+    margin: 50px 0 30px 0;
+  }
+  .tittle span {
+    font-size: 45px;
+  }
 }
 </style>

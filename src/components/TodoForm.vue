@@ -41,11 +41,13 @@ export default {
   width: 700px;
   align-items: center;
   margin-bottom: 40px;
+  transition: 0.3s;
 }
 
 .oktopost.v-select {
   width: 30%;
   height: 50px;
+  transition: 0.3s;
 }
 
 .oktopost .vs__search,
@@ -63,5 +65,15 @@ export default {
 .oktopost .vs__selected,
 .oktopost li {
   color: #356cb6;
+}
+
+@media screen and (max-width: 820px) {
+  .todo-form {
+    flex-direction: column;
+    width: 85%;
+  }
+  .oktopost.v-select {
+    width: 100%;
+  }
 }
 </style>

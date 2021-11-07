@@ -1,5 +1,5 @@
 <template>
-  <div v-if="todos.length > 0">
+  <div class="todo-list" v-if="todos.length > 0">
     <ul>
       <TodoItem
         v-for="todo in todos"
@@ -29,4 +29,10 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+@media screen and (max-width: 820px) {
+  .todo-list {
+    width: 85%;
+  }
+}
+</style>

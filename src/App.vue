@@ -28,12 +28,10 @@ export default {
   },
   methods: {
     createTodo(todo) {
-      this.todos.push(todo);
-      this.filterTodo(this.selected);
+      this.todos = [...this.todos, todo];
     },
     deleteTodo(todo) {
       this.todos = this.todos.filter((t) => t.id !== todo.id);
-      this.filterTodo(this.selected);
     },
     filterTodo(selected) {
       this.selected = selected;
@@ -55,9 +53,19 @@ export default {
         }
         return todoItem;
       });
-
+    },
+  },
+  watch: {
+    todos(newValue) {
+      localStorage.setItem("todos", JSON.stringify(newValue));
       this.filterTodo(this.selected);
     },
+  },
+  mounted() {
+    const todosFromStorage = JSON.parse(localStorage.getItem("todos"));
+    if (todosFromStorage) {
+      this.todos = todosFromStorage;
+    }
   },
 };
 </script>

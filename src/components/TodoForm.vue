@@ -67,6 +67,14 @@ export default {
   color: #356cb6;
 }
 
+.oktopost .vs__clear {
+  display: none;
+}
+.oktopost .vs__actions {
+  cursor: pointer;
+  padding: 4px 10px 0 10px;
+}
+
 @media screen and (max-width: 820px) {
   .todo-form {
     flex-direction: column;

@@ -49,6 +49,7 @@ export default {
   border-radius: 8px;
   margin-right: 10px;
   word-break: break-all;
+  transition: ease-in 0.3s;
 }
 
 .done {

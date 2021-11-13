@@ -2,7 +2,9 @@
 
 My first simple Vue app.
 
-With vue-select component https://github.com/sagalbot/vue-select
+With usage of vue-select component https://github.com/sagalbot/vue-select
+
+Deployment: https://todo-list-vselect.web.app/
 ***
 
 

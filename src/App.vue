@@ -28,7 +28,9 @@ export default {
   },
   methods: {
     createTodo(todo) {
-      this.todos = [...this.todos, todo];
+      if (todo.todoText) {
+        this.todos = [...this.todos, todo];
+      }
     },
     deleteTodo(todo) {
       this.todos = this.todos.filter((t) => t.id !== todo.id);

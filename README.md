@@ -1,24 +1,21 @@
-# vue-todo
+**ToDo vue List** 
 
-## Project setup
-```
-npm install
-```
+My first simple Vue app.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+With usage of vue-select component https://github.com/sagalbot/vue-select
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Deployment: https://todo-list-vselect.web.app/
+***
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+On big screens
+![2021-11-13_20-47-51](https://user-images.githubusercontent.com/55439753/141655952-35c1dc8b-3d3e-4c06-a0a2-9d629740148b.png)
+***
+On smartphones
+
+![2021-11-13_20-49-55](https://user-images.githubusercontent.com/55439753/141655953-bf1a989c-fcbb-4561-a927-9465dfab83a8.png)
+***
+Filtered
+
+![2021-11-13_20-48-44](https://user-images.githubusercontent.com/55439753/141655954-0ce4885a-b98a-4cb8-9add-4422f1004cd7.png)
